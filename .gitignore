@@ -1,0 +1,9 @@
+.idea/
+*.iml
+downloader/.idea
+downloader/local.properties
+downloader/build
+downloader/.gradle
+*.swp
+node_modules/
+site-generator/node_modules

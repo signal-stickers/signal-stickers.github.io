@@ -1,15 +1,33 @@
 <html>
   <head>
-    <title>Signal Stickers</title>
+    <title>Signal Stickers - Unofficial Signal Sticker Directory</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/clusterize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/clusterize.min.js"></script>
+    <script type="text/javascript" src="js/handlebars.min-v4.5.3.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
   <body>
-    <h1>Signal Stickers</h1>
-    <ul>
-      <li><a href="https://signal.art/addstickers/#pack_id=fb535407d2f6497ec074df8b9c51dd1d&pack_key=17e971c134035622781d2ee249e6473b774583750b68c11bb82b7509c68b6dfd">Zozo the French Bulldog</a></li>
-      <li><a href="https://signal.art/addstickers/#pack_id=9acc9e8aba563d26a4994e69263e3b25&pack_key=5a6dff3948c28efb9b7aaf93ecc375c69fc316e78077ed26867a14d10a0f6a12">Bandit the Cat</a></li>
-      <li><a href="https://signal.art/addstickers/#pack_id=04912e10bbae226ba321f368c96a7f34&pack_key=4d08951a04d99a00a96dc46713c27f1dcf2ee4b29d9f0ee3acb8798fa0f2cbeb">Spidermeme</a></li>
-      <li><a href="https://signal.art/addstickers/#pack_id=51726dcd240dad163b3f8d81c1c72b2e&pack_key=4a9185db45da6616007c0db1d44c255b596864086374fe568f7cc881f81d140f">Spider-Verse</a></li>
-    </ul>
+   <div class="header">
+     <h1>Signal Stickers</h1>
+     <h2>Unofficial sticker directory for Signal.</h2>
+     <input type="text" placeholder="Search..." id="search" />
+   </div>
+
+    <div id="scroll-area" class="clusterize-scroll">
+      <div id="content-area" class="clusterize-content">
+        <div class="clusterize-no-data">Loading data...</div>
+      </div>
+    </div>
+
+    <script id="pack-template" type="text/x-handlebars-template">
+      <div class="pack" data-url="{{url}}" onclick="onPackClicked('{{url}}')">
+        <img src="img/covers/{{coverFileName}}" />
+        <h1>{{title}}</h1>
+        <h2>{{author}}</h2>
+      </div>
+    </script>
   </body>
 </html>
