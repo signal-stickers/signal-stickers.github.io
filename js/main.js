@@ -50,7 +50,7 @@ function filterData(data) {
 
 function substringOfArray(query, array) {
   for (let i = 0; i < array.length; i++) {
-    if (array[i].indexOf(array) >= 0) {
+    if (array[i].indexOf(query) >= 0) {
       return true;
     }
   }
