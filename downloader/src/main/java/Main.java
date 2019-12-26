@@ -18,7 +18,6 @@ import org.whispersystems.signalservice.internal.util.Util;
 
 import java.io.*;
 import java.security.Security;
-import java.util.Properties;
 import java.util.UUID;
 
 class Main {
@@ -78,18 +77,11 @@ class Main {
     return new Pair<>(url.substring(40, 72), url.substring(82));
   }
 
-  private static SignalServiceMessageReceiver buildMessageReceiver() throws IOException {
-    Properties properties = new Properties();
-    properties.load(new FileInputStream("local.properties"));
-
-    UUID   uuid = UUID.fromString(properties.getProperty("uuid"));
-    String e164 = properties.getProperty("e164");
-    String pass = properties.getProperty("pass");
-
+  private static SignalServiceMessageReceiver buildMessageReceiver() {
     return new SignalServiceMessageReceiver(buildServiceConfiguration(),
-                                            uuid,
-                                            e164,
-                                            pass,
+                                            UUID.randomUUID(),
+                                            "",
+                                            "",
                                             null,
                                             "owa",
                                             null,
